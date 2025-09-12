@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  ipxe-server:
+    build: ./build/
+    container_name: ipxe-server
+    ports:
+      - "9200:80"
+    volumes:
+      - /volume1/docker/ipxe/images:/var/www/images:ro
+      - /volume1/docker/ipxe/ignition:/var/www/ignition:ro
+      - /volume1/docker/ipxe/auth:/etc/nginx/auth
+    env_file:
+      - .env
+    environment:
+      - IPXE_USER=admin
+    restart: unless-stopped
+    networks:
+      - ipxe
+
+networks:
+  ipxe:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.22.0.0/16
+         gateway: 172.22.0.1

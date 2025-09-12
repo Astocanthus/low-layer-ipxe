@@ -1,0 +1,15 @@
+{
+  "ignition": { 
+    "version": "3.4.0" 
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFVKSVcIqxkkhQOen6+wOC9aO0Pz+2z+mDVgGa6W2id13vPCHwBrBo/BDmIGN5QAgE9rGUjCkk2rmJIsY3uaL8jswGVOqHOcjwFs3qm9DgpZAotD0teK4zKN7HWGb5xokoIGZoD9NpzWdtHfwDpPkF6QAJ98qP58jRuDk/oM5JJW9YNbg== root@Home-Station"
+        ]
+      }
+    ]
+  }
+}

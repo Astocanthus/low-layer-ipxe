@@ -1,0 +1,36 @@
+variant: fcos
+version: 1.5.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAFVKSVcIqxkkhQOen6+wOC9aO0Pz+2z+mDVgGa6W2id13vPCHwBrBo/BDmIGN5QAgE9rGUjCkk2rmJIsY3uaL8jswGVOqHOcjwFs3qm9DgpZAotD0teK4zKN7HWGb5xokoIGZoD9NpzWdtHfwDpPkF6QAJ98qP58jRuDk/oM5JJW9YNbg== root@Home-Station"
+
+storage:
+  files:
+    - path: /etc/rpm-ostreed.conf
+      mode: 0644
+      contents:
+        inline: |
+          [Daemon]
+          AutomaticUpdatePolicy=none
+
+systemd:
+  units:
+    - name: install-ovs.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Install OpenVSwitch at first boot
+        After=network-online.target
+        Wants=network-online.target
+        ConditionPathExists=!/var/lib/ovs-installed
+
+        [Service]
+        Type=oneshot
+        ExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive openvswitch
+        ExecStartPost=/usr/bin/touch /var/lib/ovs-installed
+        RemainAfterExit=yes
+
+        [Install]
+        WantedBy=multi-user.target
