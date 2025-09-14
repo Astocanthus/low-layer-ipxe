@@ -6,10 +6,10 @@
 [![Fedora CoreOS](https://img.shields.io/badge/Fedora_CoreOS-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://fedoraproject.org/coreos/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub release](https://img.shields.io/github/release/Astocanthus/low-layer-vault.svg)](https://github.com/Astocanthus/low-layer-vault/releases)
-[![GitHub issues](https://img.shields.io/github/issues/Astocanthus/low-layer-vault.svg)](https://github.com/Astocanthus/low-layer-vault/issues)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com)
-[![Security](https://img.shields.io/badge/Security-HTTP%20Basic%20Auth-green.svg)](https://github.com)
+[![GitHub release](https://img.shields.io/github/release/Astocanthus/low-layer-ipxe.svg)](https://github.com/Astocanthus/low-layer-ipxe/releases)
+[![GitHub issues](https://img.shields.io/github/issues/Astocanthus/low-layer-ipxe.svg)](https://github.com/Astocanthus/low-layer-ipxe/issues)
+[![Docker Version](https://img.shields.io/badge/Docker-%3E%2024.0.0-blue)](https://www.docker.com/)
+[![Docker Compose](https://img.shields.io/badge/Docker%20Compose-%3E%3D%202.20-blue)](https://docs.docker.com/compose/)
 
 A containerized iPXE server built with Nginx for serving system images and Ignition configuration files.
 
