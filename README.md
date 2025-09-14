@@ -6,6 +6,8 @@
 [![Fedora CoreOS](https://img.shields.io/badge/Fedora_CoreOS-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://fedoraproject.org/coreos/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/release/Astocanthus/low-layer-vault.svg)](https://github.com/Astocanthus/low-layer-vault/releases)
+[![GitHub issues](https://img.shields.io/github/issues/Astocanthus/low-layer-vault.svg)](https://github.com/Astocanthus/low-layer-vault/issues)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com)
 [![Security](https://img.shields.io/badge/Security-HTTP%20Basic%20Auth-green.svg)](https://github.com)
 
