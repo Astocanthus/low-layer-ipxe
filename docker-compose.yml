@@ -12,8 +12,6 @@ services:
       - /volume1/docker/ipxe/auth:/etc/nginx/auth
     env_file:
       - .env
-    environment:
-      - IPXE_USER=admin
     restart: unless-stopped
     networks:
       - ipxe

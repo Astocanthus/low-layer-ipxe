@@ -1,45 +1,45 @@
 #!/bin/sh
 
-# Variables d'environnement par défaut
+# Default environment variables
 IPXE_USER=${IPXE_USER:-admin}
 IPXE_PASSWORD=${IPXE_PASSWORD:-changeme}
 
-# Création du fichier de mots de passe si il n'existe pas
+# Create password file if it doesn't exist
 if [ ! -f /etc/nginx/auth/.htpasswd ]; then
-    echo "Création des identifiants d'authentification..."
-    mkdir -p /etc/nginx/auth
-    htpasswd -cb /etc/nginx/auth/.htpasswd "$IPXE_USER" "$IPXE_PASSWORD"
-    echo "Utilisateur créé: $IPXE_USER"
-    
-    # Vérification du fichier créé
-    if [ -f /etc/nginx/auth/.htpasswd ]; then
-        echo "Fichier htpasswd créé avec succès:"
-        cat /etc/nginx/auth/.htpasswd
-    else
-        echo "ERREUR: Impossible de créer le fichier htpasswd"
-        exit 1
-    fi
-else
-    echo "Fichier d'authentification existant trouvé"
-    echo "Contenu du fichier htpasswd:"
+  echo "Creating authentication credentials..."
+  mkdir -p /etc/nginx/auth
+  htpasswd -cb /etc/nginx/auth/.htpasswd "$IPXE_USER" "$IPXE_PASSWORD"
+  echo "User created: $IPXE_USER"
+  
+  # Verify created file
+  if [ -f /etc/nginx/auth/.htpasswd ]; then
+    echo "htpasswd file created successfully:"
     cat /etc/nginx/auth/.htpasswd
+  else
+    echo "ERROR: Unable to create htpasswd file"
+    exit 1
+  fi
+else
+  echo "Existing authentication file found"
+  echo "htpasswd file content:"
+  cat /etc/nginx/auth/.htpasswd
 fi
 
-# Vérification des répertoires
+# Check directories
 mkdir -p /var/www/images /var/www/ignition
 
-# Permissions plus permissives
+# Set permissive permissions
 chown -R nginx:nginx /var/www/
 chmod -R 755 /var/www/
 find /var/www -type f -exec chmod 644 {} \;
 
 echo "==================================="
-echo "iPXE Server Docker - Prêt"
+echo "iPXE Server Docker - Ready"
 echo "==================================="
-echo "Utilisateur: $IPXE_USER"
+echo "User: $IPXE_USER"
 echo "Images: http://server/images/"
 echo "Ignition: http://server/ignition/"
 echo "==================================="
 
-# Démarrage de nginx
+# Start nginx
 exec nginx -g 'daemon off;'

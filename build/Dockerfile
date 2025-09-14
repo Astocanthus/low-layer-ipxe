@@ -1,24 +1,24 @@
 FROM nginx:alpine
 
-# Installation des outils nécessaires
+# Install necessary tools
 RUN apk add --no-cache openssl apache2-utils
 
-# Création des répertoires
+# Create directories
 RUN mkdir -p /var/www/images /var/www/ignition /etc/nginx/auth
 
-# Configuration Nginx
+# Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY default.conf /etc/nginx/conf.d/default.conf
 
-# Script d'initialisation pour créer les credentials
+# Initialization script to create credentials
 COPY init.sh /init.sh
 RUN chmod +x /init.sh
 
-# Exposition du port
+# Expose ports
 EXPOSE 80 443
 
-# Point de montage pour les fichiers
+# Mount point for files
 VOLUME ["/var/www/images", "/var/www/ignition"]
 
-# Initialisation et démarrage
+# Initialize and start
 CMD ["/init.sh"]
