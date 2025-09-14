@@ -1,6 +1,12 @@
+# Environment variables - contains sensitive credentials
 .env
-auth
+
+# Authentication directory - contains generated .htpasswd files
+auth/
+# Keep the README to explain the auth directory purpose
 !auth/README.md
 
-images
+# Images directory - contains large system image files
+images/
+# Keep the README to explain where to place Fedora CoreOS images
 !images/fcos/README.md
